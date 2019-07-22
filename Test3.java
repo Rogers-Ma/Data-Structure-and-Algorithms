@@ -1,37 +1,41 @@
 /**
- * æ’åºç®—æ³•
+ * ÅÅĞòËã·¨
  * 
  * @author mzw
  */
 
 public class Test3 {
 	public static void main(String[] args) {
-		int n = 100;
+		int n = 1000;
 		int array[] = createArray(n);
-		System.out.println("åˆå§‹æ•°ç»„");
+		System.out.println("³õÊ¼Êı×é");
 		printArray(array);
 
-		System.out.println("å†’æ³¡æ’åº");
+		System.out.println("Ã°ÅİÅÅĞò");
 		printArray(bubbleSort(array.clone()));
 
-		System.out.println("é€‰æ‹©æ’åº");
+		System.out.println("Ñ¡ÔñÅÅĞò");
 		printArray(selectSort(array.clone()));
 
-		System.out.println("æ’å…¥æ’åº");
+		System.out.println("²åÈëÅÅĞò");
 		printArray(insertSort(array.clone()));
 
-		System.out.println("å½’å¹¶æ’åº");
+		System.out.println("¹é²¢ÅÅĞò");
 		printArray(mergeSort(array.clone()));
 		
-		System.out.println("å¿«é€Ÿæ’åº");
+		System.out.println("¿ìËÙÅÅĞò");
 		printArray(quickSort(array.clone()));
 		
-		System.out.println("å †æ’åº");
+		System.out.println("¶ÑÅÅĞò");
 		printArray(heapSort(array.clone()));
+		
+		System.out.println("Ï£¶ûÅÅĞò");
+		printArray(shellSort(array.clone()));
+		
 	}
 
 	/**
-	 * ç”Ÿæˆä¸€ä¸ªé•¿åº¦ä¸ºnçš„éšæœºæ•°ç»„
+	 * Éú³ÉÒ»¸ö³¤¶ÈÎªnµÄËæ»úÊı×é
 	 * 
 	 * @param n
 	 * @return
@@ -52,7 +56,7 @@ public class Test3 {
 	}
 
 	/**
-	 * å†’æ³¡æ’åº O(n^2)
+	 * Ã°ÅİÅÅĞò O(n^2)
 	 * 
 	 * @param array
 	 * @return
@@ -80,7 +84,7 @@ public class Test3 {
 	}
 
 	/**
-	 * é€‰æ‹©æ’åº O(n^2)
+	 * Ñ¡ÔñÅÅĞò O(n^2)
 	 * 
 	 * @param array
 	 * @return
@@ -102,7 +106,7 @@ public class Test3 {
 	}
 
 	/***
-	 * æ’å…¥æ’åº O(n^2)
+	 * ²åÈëÅÅĞò O(n^2)
 	 * 
 	 * @param array
 	 * @return
@@ -120,7 +124,7 @@ public class Test3 {
 	}
 
 	/***
-	 * å½’å¹¶æ“ä½œ
+	 * ¹é²¢²Ù×÷
 	 * @param r
 	 * @param r1
 	 * @param s
@@ -136,7 +140,7 @@ public class Test3 {
 				r1[k++] = r[j++];
 			
 		}
-		//System.out.println(i+" å½“å‰Iï¼š"+m+"  H: "+j);
+		//System.out.println(i+" µ±Ç°I£º"+m+"  H: "+j);
 		while (i <= m) {
 			r1[k++] = r[i++];
 		}
@@ -148,7 +152,7 @@ public class Test3 {
 	}
 
 	/***
-	 * ä¸€éå½’å¹¶æ“ä½œ
+	 * Ò»±é¹é²¢²Ù×÷
 	 * @param r
 	 * @param r1
 	 * @param n
@@ -160,7 +164,7 @@ public class Test3 {
 			merge(r, r1, i, i + h - 1, i + 2 * h - 1);
 			i += 2 * h;
 		}
-		//System.out.println("å½“å‰Iï¼š"+i+"  H: "+h);
+		//System.out.println("µ±Ç°I£º"+i+"  H: "+h);
 		if (i < n - h + 1)
 			merge(r, r1, i, i + h - 1, n);
 		
@@ -171,14 +175,14 @@ public class Test3 {
 	}
 
 	/**
-	 * å½’å¹¶æ’åºçš„éé€’å½’å®ç°ï¼Œè‡ªåº•å‘ä¸Šï¼Œæ•ˆç‡æ¯”é€’å½’ç•¥é«˜ï¼Œå¯è¯»æ€§ç¨å·®
+	 * ¹é²¢ÅÅĞòµÄ·Çµİ¹éÊµÏÖ£¬×Ôµ×ÏòÉÏ£¬Ğ§ÂÊ±Èµİ¹éÂÔ¸ß£¬¿É¶ÁĞÔÉÔ²î
 	 * 
 	 * @param r
 	 * @param r1
 	 * @param n
 	 */
 	public static int[] mergeSort(int r[]) {
-		int h = 1;// åˆå§‹æ—¶çš„åœ¨å­åºåˆ—
+		int h = 1;// ³õÊ¼Ê±µÄÔÚ×ÓĞòÁĞ
 		int r1[]=new int[r.length];
 		while (h < r.length) {
 			mergePass(r, r1, r.length-1, h);
@@ -191,7 +195,7 @@ public class Test3 {
 	
 	
 	/***
-	 * å¿«é€Ÿæ’åºé€’å½’å®ç°
+	 * ¿ìËÙÅÅĞòµİ¹éÊµÏÖ
 	 * @param a
 	 * @param first
 	 * @param end
@@ -228,7 +232,7 @@ public class Test3 {
 	}
 	
 	/***
-	 * å¿«é€Ÿæ’åºè¿”å›æ•°ç»„
+	 * ¿ìËÙÅÅĞò·µ»ØÊı×é
 	 * @param a
 	 * @return
 	 */
@@ -239,10 +243,10 @@ public class Test3 {
 	
 	
 	/***
-	 * ç­›é€‰æ³•è°ƒæ•´å †
-	 * @param a	å †æ•°ç»„
-	 * @param k æ ¹æŒ‡é’ˆ
-	 * @param m	å­æ ‘ç»“å°¾æŒ‡é’ˆ
+	 * É¸Ñ¡·¨µ÷Õû¶Ñ
+	 * @param a	¶ÑÊı×é
+	 * @param k ¸ùÖ¸Õë
+	 * @param m	×ÓÊ÷½áÎ²Ö¸Õë
 	 */
 	public static void sift(int a[],int k,int m) {
 		int i=k,j=2*i+1;
@@ -264,18 +268,18 @@ public class Test3 {
 	
 	
 	/***
-	 * å †æ’åº
+	 * ¶ÑÅÅĞò
 	 * @param a
 	 * @return
 	 */
 	public static int[] heapSort(int a[]) {
 		int n=a.length-1;
 		
-		//ç”Ÿæˆæœ‰åºå †
+		//Éú³ÉÓĞĞò¶Ñ
 		for(int i=n/2;i>=0;i--) {
 			sift(a,i,n);
 		}
-		//å°†å †ä¸­çš„å…ƒç´ åœ¨æ•°ç»„ä¸­æ’åº
+		//½«¶ÑÖĞµÄÔªËØÔÚÊı×éÖĞÅÅĞò
 		for(int i=0;i<n;i++) {
 			int temp=a[0];
 			a[0]=a[n-i];
@@ -284,4 +288,25 @@ public class Test3 {
 		}
 		return a;
 	}
+	
+	/**
+	 * Ï£¶ûÅÅĞò
+	 * @param array
+	 * @return
+	 */
+	public static int[] shellSort(int array[]) {
+		int n=array.length-1;
+		for(int d=n/2;d>=1;d=d/2) {
+			for(int i=d;i<=n;i++) {
+				int temp=array[i];
+				int j;
+				for(j=i-d;j>=0&&array[j]>temp;j=j-d) {
+					array[j+d]=array[j];
+				}
+				array[j+d]=temp;
+			}
+		}
+		return array;
+	}
+	
 }
